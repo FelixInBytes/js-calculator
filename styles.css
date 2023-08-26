@@ -3,3 +3,23 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+#ui-container{
+    display: flex;
+}
+
+#calculator-rig{
+    display: flex;
+}
+
+#calc-display{
+    display: flex;
+}
+
+#calc-nmbrs{
+    display: flex;
+}
+
+#calc-btns{
+    display: flex;
+}
