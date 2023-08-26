@@ -3,24 +3,55 @@ body{
     align-items: center;
     justify-content: center;
     background-color: grey;
+    padding-top: 45px;
 }
 
 #ui-container{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 800px;
+    height: 900px;
 }
 
 #calculator-rig{
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #045eac;
+    width: 700px;
+    height: 800px;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 10px;
 }
 
 #calc-display{
     display: flex;
+    background-color: #757863;
+    width: 600px;
+    height: 100px;
+    color: #3c3d35;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 50pt;
 }
 
 #calc-nmbrs{
     display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: 400px;
+    background-color: white;
 }
 
 #calc-btns{
     display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: 200px;
+    background-color: white;
 }
