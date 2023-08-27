@@ -1,22 +1,37 @@
-function operate(operator, num1, num2) {
-  var solution;
+var operateSolution = 0;
+
+
+
+window.addEventListener("DOMContentLoaded", showScreen);
+
+
+function showScreen() {
+  document.getElementById("calc-display").innerHTML = operateSolution;
+}
+
+
+
+
+
+function operate( num1,operator, num2) {
   switch (operator) {
     case "+":
-      solution = add(num1, num2);
+      operateSolution = add(num1, num2);
       break;
     case "-":
-      solution = sub(num1, num2);
+      operateSolution = sub(num1, num2);
       break;
     case "*":
-      solution = multi(num1, num2);
+      operateSolution = multi(num1, num2);
       break;
     case "/":
-      solution = div(num1, num2);
+      operateSolution = div(num1, num2);
       break;
     default:
       break;
   }
-  console.log(solution);
+  console.log(operateSolution);
+  showScreen(operateSolution);
 }
 
 function add(num1, num2) {
