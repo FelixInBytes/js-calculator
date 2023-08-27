@@ -6,6 +6,11 @@ body{
     padding-top: 45px;
 }
 
+button{
+    width: 80px;
+    height: 80px;
+}
+
 #ui-container{
     display: flex;
     align-items: center;
