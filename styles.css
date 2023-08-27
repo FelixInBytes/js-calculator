@@ -59,4 +59,7 @@ button{
     width: 600px;
     height: 200px;
     background-color: white;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
