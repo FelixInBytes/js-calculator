@@ -1,9 +1,16 @@
 window.addEventListener("DOMContentLoaded", () => {
+  //const
   const numberButtons = document.querySelectorAll("[number]");
   const operationButtons = document.querySelectorAll("[operation]");
   const clearButton = document.querySelectorAll("[operation-clear]");
   const equalsButton = document.querySelectorAll("[operation-equals]");
-  var operateSolution = "";
+  //vars
+  var operateSolution ;
+  var workingVar ;
+  var firstNumber;
+  var secondNumber;
+  var operator;
+  var opFlag = false;
 
   //logs
   console.log(numberButtons);
@@ -13,22 +20,54 @@ window.addEventListener("DOMContentLoaded", () => {
 
   clearButton.forEach((button) => {
     button.addEventListener("click", clear);
-    console.log("cleared");
   });
+
+  equalsButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      secondNumber = workingVar;
+      operate(firstNumber, operator, secondNumber);
+      showResult();
+    });
+  })
+
+  operationButtons.forEach((button) => {
+    button.addEventListener("click", () =>{
+      operator = button.innerHTML;
+      opFlag = true;
+    })
+  })
 
   numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      appendNumber(button.innerHTML);
-      updateScreen();
+      if (opFlag != true) {
+        appendNumber(button.innerHTML);
+        updateScreen();  
+      }else{
+        firstNumber = workingVar;
+        clear();
+        appendNumber(button.innerHTML);
+        updateScreen();  
+      }
+      
     });
   });
 
-  function updateScreen() {
+
+
+
+
+
+
+  function showResult() {
     document.getElementById("calc-display").innerHTML = operateSolution;
   }
 
+  function updateScreen() {
+    document.getElementById("calc-display").innerHTML = workingVar;
+  }
+
   function appendNumber(num) {
-    operateSolution += num;
+    workingVar += num;
   }
 
   /**
@@ -59,7 +98,6 @@ window.addEventListener("DOMContentLoaded", () => {
         break;
     }
     console.log(operateSolution);
-    showScreen(operateSolution);
   }
 
   function add(num1, num2) {
@@ -83,7 +121,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function clear() {
-    operateSolution = "";
+    workingVar = "";
     updateScreen();
   }
 });
