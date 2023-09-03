@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function appendNumber(num) {
-    calcData.workingVar = num;
+    calcData.workingVar += num;
   }
 
   /**
