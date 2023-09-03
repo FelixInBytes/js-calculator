@@ -82,6 +82,8 @@ window.addEventListener("DOMContentLoaded", () => {
    */
   // shows number saved in var operateSolution on calculator display
 
+  //chosing the fitting calculation based on operator and converts 
+  // number to Number type 
   function operate(num1, operator, num2) {
     num1 = Number(num1);
     num2 = Number(num2);
@@ -104,26 +106,31 @@ window.addEventListener("DOMContentLoaded", () => {
     console.log(calcData.operateSolution);
   }
 
+  //calculate addition
   function add(num1, num2) {
     var solution = num1 + num2;
     return solution;
   }
 
+  //calculate subtraction
   function sub(num1, num2) {
     var solution = num1 - num2;
     return solution;
   }
 
+  //calculate multiplication
   function multi(num1, num2) {
     var solution = num1 * num2;
     return solution;
   }
 
+  //calculate divison
   function div(num1, num2) {
     var solution = num1 / num2;
     return solution;
   }
 
+  //clears screen and data for the calculator
   function clear() {
     calcData.workingVar = "";
     calcData.operateSolution = "";
