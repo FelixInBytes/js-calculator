@@ -5,11 +5,11 @@ window.addEventListener("DOMContentLoaded", () => {
   const clearButton = document.querySelectorAll("[operation-clear]");
   const equalsButton = document.querySelectorAll("[operation-equals]");
   //vars
-  var operateSolution ;
-  var workingVar ;
-  var firstNumber;
-  var secondNumber;
-  var operator;
+  var operateSolution = "";
+  var workingVar = "";
+  var firstNumber = "";
+  var secondNumber = "";
+  var operator = "";
   var opFlag = false;
 
   //logs
@@ -67,7 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function appendNumber(num) {
-    workingVar += num;
+    workingVar = num;
   }
 
   /**
@@ -81,6 +81,8 @@ window.addEventListener("DOMContentLoaded", () => {
   // shows number saved in var operateSolution on calculator display
 
   function operate(num1, operator, num2) {
+    num1 = Number(num1);
+    num2 = Number(num2);
     switch (operator) {
       case "+":
         operateSolution = add(num1, num2);
@@ -122,6 +124,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function clear() {
     workingVar = "";
+    operateSolution = "";
+    opFlag = false;
     updateScreen();
   }
 });
