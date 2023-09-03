@@ -5,12 +5,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const clearButton = document.querySelectorAll("[operation-clear]");
   const equalsButton = document.querySelectorAll("[operation-equals]");
   //vars
-  var operateSolution = "";
-  var workingVar = "";
-  var firstNumber = "";
-  var secondNumber = "";
-  var operator = "";
-  var opFlag = false;
+  var calcData = {
+    operateSolution : '',
+    workingVar : '',
+    firstNumber : '',
+    secondNumber : '',
+    operator : '',
+    opFlag : false
+  }
 
   //logs
   console.log(numberButtons);
@@ -24,26 +26,26 @@ window.addEventListener("DOMContentLoaded", () => {
 
   equalsButton.forEach((button) => {
     button.addEventListener("click", () => {
-      secondNumber = workingVar;
-      operate(firstNumber, operator, secondNumber);
+      calcData.secondNumber = calcData.workingVar;
+      operate(calcData.firstNumber, calcData.operator, calcData.secondNumber);
       showResult();
     });
   })
 
   operationButtons.forEach((button) => {
     button.addEventListener("click", () =>{
-      operator = button.innerHTML;
-      opFlag = true;
+      calcData.operator = button.innerHTML;
+      calcData.opFlag = true;
     })
   })
 
   numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      if (opFlag != true) {
+      if (calcData.opFlag != true) {
         appendNumber(button.innerHTML);
         updateScreen();  
       }else{
-        firstNumber = workingVar;
+        calcData.firstNumber = calcData.workingVar;
         clear();
         appendNumber(button.innerHTML);
         updateScreen();  
@@ -59,15 +61,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
   function showResult() {
-    document.getElementById("calc-display").innerHTML = operateSolution;
+    document.getElementById("calc-display").innerHTML = calcData.operateSolution;
   }
 
   function updateScreen() {
-    document.getElementById("calc-display").innerHTML = workingVar;
+    document.getElementById("calc-display").innerHTML = calcData.workingVar;
   }
 
   function appendNumber(num) {
-    workingVar = num;
+    calcData.workingVar = num;
   }
 
   /**
@@ -85,21 +87,21 @@ window.addEventListener("DOMContentLoaded", () => {
     num2 = Number(num2);
     switch (operator) {
       case "+":
-        operateSolution = add(num1, num2);
+        calcData.operateSolution = add(num1, num2);
         break;
       case "-":
-        operateSolution = sub(num1, num2);
+        calcData.operateSolution = sub(num1, num2);
         break;
       case "*":
-        operateSolution = multi(num1, num2);
+        calcData.operateSolution = multi(num1, num2);
         break;
       case "/":
-        operateSolution = div(num1, num2);
+        calcData.operateSolution = div(num1, num2);
         break;
       default:
         break;
     }
-    console.log(operateSolution);
+    console.log(calcData.operateSolution);
   }
 
   function add(num1, num2) {
@@ -123,9 +125,9 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function clear() {
-    workingVar = "";
-    operateSolution = "";
-    opFlag = false;
+    calcData.workingVar = "";
+    calcData.operateSolution = "";
+    calcData.opFlag = false;
     updateScreen();
   }
 });
